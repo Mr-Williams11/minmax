@@ -37,3 +37,25 @@ function disableInputAndButton() {
 }
 
 document.getElementById('submitGuessBtn').addEventListener('click', checkGuess);
+
+function restartGame() {
+
+    // Enable input and button
+    document.getElementById('guessInput').disabled = false;
+    document.querySelector('button').disabled = false;
+
+    // Reset attempts and generate a new target number
+    attempts = 0;
+    targetNumber = getRandomNumber(min, max);
+
+    // Clear input and message
+    document.getElementById('guessInput').value = '';
+    document.getElementById('message').textContent = '';
+
+    // Update displayed min and max values
+    document.getElementById('min').textContent = min;
+    document.getElementById('max').textContent = max;
+}
+
+// Add event listener for restart button
+document.getElementById('restartBtn').addEventListener('click', restartGame);
